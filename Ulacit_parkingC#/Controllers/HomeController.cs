@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
+using Ulacit_parkingC_.Models; // Asegúrate de que el espacio de nombres sea el correcto
 
 namespace Ulacit_parkingC_.Controllers
 {
@@ -13,18 +12,24 @@ namespace Ulacit_parkingC_.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Privacy()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        // Acción para la vista de error
+        [OutputCache(Duration = 0, Location = OutputCacheLocation.None, NoStore = true)]
+        public ActionResult Error()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var errorViewModel = new ErrorViewModel
+            {
+                // En .NET Framework, puedes usar SessionID como alternativa para el Request ID
+                RequestId = HttpContext?.Session?.SessionID ?? Guid.NewGuid().ToString()
+            };
+            return View(errorViewModel);
         }
     }
 }
+
+
+

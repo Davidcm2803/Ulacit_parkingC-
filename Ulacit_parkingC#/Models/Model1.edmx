@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ParkingDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MovementLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vehicle_id" Type="int" />
+          <Property Name="action" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="timestamp" Type="datetime" />
+          <Property Name="reason" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ParkingLots">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="regular_capacity" Type="int" Nullable="false" />
+          <Property Name="motorcycle_capacity" Type="int" Nullable="false" />
+          <Property Name="special_capacity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="120" Nullable="false" />
+          <Property Name="date_of_birth" Type="date" Nullable="false" />
+          <Property Name="identification" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="card_number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="first_login" Type="char" MaxLength="1" />
+          <Property Name="PasswordChanged" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Vehicles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="brand" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="color" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="license_plate" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="vehicle_type" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="owner_id" Type="int" />
+          <Property Name="uses_special_space" Type="char" MaxLength="1" />
+          <Property Name="IsActive" Type="char" MaxLength="1" />
+        </EntityType>
+        <Association Name="FK__MovementL__vehic__4E88ABD4">
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MovementLog" Type="Self.MovementLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MovementLog">
+              <PropertyRef Name="vehicle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vehicles__owner___4316F928">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Vehicles">
+              <PropertyRef Name="owner_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ParkingDatabaseModelStoreContainer">
+          <EntitySet Name="MovementLog" EntityType="Self.MovementLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ParkingLots" EntityType="Self.ParkingLots" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehicles" EntityType="Self.Vehicles" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__MovementL__vehic__4E88ABD4" Association="Self.FK__MovementL__vehic__4E88ABD4">
+            <End Role="Vehicles" EntitySet="Vehicles" />
+            <End Role="MovementLog" EntitySet="MovementLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vehicles__owner___4316F928" Association="Self.FK__Vehicles__owner___4316F928">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Vehicles" EntitySet="Vehicles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ParkingDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MovementLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vehicle_id" Type="Int32" />
+          <Property Name="action" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="timestamp" Type="DateTime" Precision="3" />
+          <Property Name="reason" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Vehicles" Relationship="Self.FK__MovementL__vehic__4E88ABD4" FromRole="MovementLog" ToRole="Vehicles" />
+        </EntityType>
+        <EntityType Name="ParkingLots">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="regular_capacity" Type="Int32" Nullable="false" />
+          <Property Name="motorcycle_capacity" Type="Int32" Nullable="false" />
+          <Property Name="special_capacity" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="120" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date_of_birth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="identification" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="card_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="first_login" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PasswordChanged" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Vehicles" Relationship="Self.FK__Vehicles__owner___4316F928" FromRole="Users" ToRole="Vehicles" />
+        </EntityType>
+        <EntityType Name="Vehicles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="color" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="license_plate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="vehicle_type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="owner_id" Type="Int32" />
+          <Property Name="uses_special_space" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="MovementLog" Relationship="Self.FK__MovementL__vehic__4E88ABD4" FromRole="Vehicles" ToRole="MovementLog" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Vehicles__owner___4316F928" FromRole="Vehicles" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK__MovementL__vehic__4E88ABD4">
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MovementLog" Type="Self.MovementLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MovementLog">
+              <PropertyRef Name="vehicle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vehicles__owner___4316F928">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Vehicles">
+              <PropertyRef Name="owner_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ParkingDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MovementLog" EntityType="Self.MovementLog" />
+          <EntitySet Name="ParkingLots" EntityType="Self.ParkingLots" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Vehicles" EntityType="Self.Vehicles" />
+          <AssociationSet Name="FK__MovementL__vehic__4E88ABD4" Association="Self.FK__MovementL__vehic__4E88ABD4">
+            <End Role="Vehicles" EntitySet="Vehicles" />
+            <End Role="MovementLog" EntitySet="MovementLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vehicles__owner___4316F928" Association="Self.FK__Vehicles__owner___4316F928">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Vehicles" EntitySet="Vehicles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ParkingDatabaseModelStoreContainer" CdmEntityContainer="ParkingDatabaseEntities">
+          <EntitySetMapping Name="MovementLog">
+            <EntityTypeMapping TypeName="ParkingDatabaseModel.MovementLog">
+              <MappingFragment StoreEntitySet="MovementLog">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="vehicle_id" ColumnName="vehicle_id" />
+                <ScalarProperty Name="action" ColumnName="action" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParkingLots">
+            <EntityTypeMapping TypeName="ParkingDatabaseModel.ParkingLots">
+              <MappingFragment StoreEntitySet="ParkingLots">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="regular_capacity" ColumnName="regular_capacity" />
+                <ScalarProperty Name="motorcycle_capacity" ColumnName="motorcycle_capacity" />
+                <ScalarProperty Name="special_capacity" ColumnName="special_capacity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ParkingDatabaseModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+                <ScalarProperty Name="identification" ColumnName="identification" />
+                <ScalarProperty Name="card_number" ColumnName="card_number" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="first_login" ColumnName="first_login" />
+                <ScalarProperty Name="PasswordChanged" ColumnName="PasswordChanged" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicles">
+            <EntityTypeMapping TypeName="ParkingDatabaseModel.Vehicles">
+              <MappingFragment StoreEntitySet="Vehicles">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="license_plate" ColumnName="license_plate" />
+                <ScalarProperty Name="vehicle_type" ColumnName="vehicle_type" />
+                <ScalarProperty Name="owner_id" ColumnName="owner_id" />
+                <ScalarProperty Name="uses_special_space" ColumnName="uses_special_space" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

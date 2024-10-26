@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Parqueo</title>
+    <link rel="stylesheet" href="~/Content/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="d-flex">
+        <div class="sidebar" style="width: 250px; background-image: url('~/Content/img/FondoIzq.PNG'); background-size: cover; background-repeat: no-repeat; height: 100vh;">
+            <img src="~/Content/img/parqueo1.png" alt="Imagen de Parqueo 1" />
+            <h3>Parqueo #1</h3>
+            <p>Diagonal al Ministerio de Trabajo</p>
+            <button class="btn-volver" onclick="window.history.back()">Volver</button>
+        </div>
+        <div class="content" style="flex-grow: 1;">
+            <div class="x">
+                <h2>Bienvenido al Parqueo #1</h2>
+                <div class="button-container" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <button class="vehiculo-btn">
+                        <img src="~/Content/img/EntradaV.png" alt="Entrada del Vehículo" class="parqueo-img" />
+                        <p>Entrada del Vehículo</p>
+                    </button>
+                    <button class="vehiculo-btn" onclick="abrirVista()">
+                        <img src="~/Content/img/SalidaV.png" alt="Salida del Vehículo" class="parqueo-img" />
+                        <p>Salida del Vehículo</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+

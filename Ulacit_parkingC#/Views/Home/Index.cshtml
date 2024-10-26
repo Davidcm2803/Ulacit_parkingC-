@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <script>
+        alert('@Html.Raw(TempData["SuccessMessage"])');
+    </script>
+}
+
+
+<div class="container-fluid">
+    <h2>Parqueos:</h2>
+
+    <div class="row">
+        <div class="col-md-4">
+            <button class="parqueo-btn" onclick="abrirP1()">
+                <img src="~/Content/img/parqueo1.PNG" alt="Parqueo 1" class="parqueo-img" />
+                <h4>Parqueo #1</h4>
+                <p>Diagonal al Ministerio de Trabajo</p>
+            </button>
+            <script>
+                function abrirP1() {
+                    window.location.href = '@Url.Action("Index", "Parqueo1")';
+                }
+            </script>
+        </div>
+
+        <div class="col-md-4">
+            <button class="parqueo-btn" onclick="abrirP2()">
+                <img src="~/Content/img/parqueo2.PNG" alt="Parqueo 2" class="parqueo-img" />
+                <h4>Parqueo #2</h4>
+                <p>Contiguo al edificio de ULACIT</p>
+            </button>
+            <script>
+                function abrirP2() {
+                    window.location.href = '@Url.Action("Index", "Parqueo2")';
+                }
+            </script>
+        </div>
+
+        <div class="col-md-4">
+            <button class="parqueo-btn" onclick="abrirP3()">
+                <img src="~/Content/img/parqueo3.PNG" alt="Parqueo 3" class="parqueo-img" />
+                <h4>Parqueo #3</h4>
+                <p>Parte posterior de la Universidad</p>
+            </button>
+            <script>
+                function abrirP3() {
+                    window.location.href = '@Url.Action("Index", "Parqueo3")';
+                }
+            </script>
+        </div>
+    </div>
+
+
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <button class="parqueo-btn" onclick="abrirP4()">
+                <img src="~/Content/img/parqueo4.PNG" alt="Parqueo 4" class="parqueo-img" />
+                <h4>Parqueo #4</h4>
+                <p>Contiguo al Falcon Yard</p>
+            </button>
+            <script>
+                function abrirP4() {
+                    window.location.href = '@Url.Action("Index", "Parqueo4")';
+                }
+            </script>
+        </div>
+
+        <div class="col-md-4">
+            <button class="parqueo-btn" onclick="abrirP5()">
+                <img src="~/Content/img/parqueo5.PNG" alt="Parqueo 5" class="parqueo-img" />
+                <h4>Parqueo #5</h4>
+                <p>Interno del Campus</p>
+            </button>
+            <script>
+                function abrirP5() {
+                    window.location.href = '@Url.Action("Index", "Parqueo5")';
+                }
+            </script>
+        </div>
+
+        <div class="col-md-4">
+            <button class="parqueo-btn" onclick="abrirP6()">
+                <img src="~/Content/img/parqueo6.PNG" alt="Parqueo 6" class="parqueo-img" />
+                <h4>Parqueo #6</h4>
+                <p>Museo de los niños</p>
+            </button>
+            <script>
+                function abrirP6() {
+                    window.location.href = '@Url.Action("Index", "Parqueo6")';
+                }
+            </script>
+        </div>
+    </div>
+</div>

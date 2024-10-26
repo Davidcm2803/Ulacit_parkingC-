@@ -16,7 +16,7 @@ namespace Ulacit_parkingC_
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Admin", action = "Login", id = UrlParameter.Optional }
             );
         }
     }

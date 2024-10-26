@@ -1,0 +1,203 @@
+﻿html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-color: white;
+    margin-bottom: 60px;
+    overflow: hidden; /* Evita el scroll de la página */
+}
+
+.navbar-custom {
+    background-color: purple; /* Cambia el fondo a morado */
+    border: 3px solid black; /* Agrega un borde negro grueso */
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-size: 35px;
+    padding-right: 20px; /* Añade espacio solo en la parte derecha */
+    margin-right: 20px; /* Espacio adicional para separar del siguiente elemento */
+}
+
+.nav-item {
+    margin-right: 20px; /* Ajusta el valor según el espacio deseado */
+    font-size:20px;
+}
+
+.navbar-nav {
+    margin-left: 20px; /* Agrega espacio al inicio de la lista de navegación */
+}
+
+
+
+.orange-text{
+    color: orange;
+}
+
+.white-text{
+    color: white;
+}
+
+.sidebar {
+    width: 250px; /* Ancho del sidebar */
+    height: 100vh; /* Altura completa de la pantalla */
+    /* background-color: purple; */ /* Comentar o eliminar esta línea */
+    background-image: url("/Content/img/FondoIzq.PNG"); /* Ruta correcta de la imagen de fondo */
+    background-size: cover; /* Hace que la imagen cubra todo el sidebar */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    position: fixed; /* Mantiene el sidebar fijo en la pantalla */
+    top: 0;
+    left: 0;
+    border-right: 5px solid black; /* Borde negro a la derecha */
+    display: flex; /* Asegúrate de que sea un contenedor flex */
+    flex-direction: column; /* Alinea los hijos en columna */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    text-align: center; /* Centra el texto */
+}
+
+    .sidebar img {
+        position: relative; /* Posiciona la imagen absolutamente */
+        top: 100px; /* Distancia desde la parte superior */
+        z-index: 1; /* Asegura que esté encima del fondo */
+        width: 50%; /* Ajusta el ancho al 50% del contenedor */
+        height: auto; /* Mantiene la proporción */
+    }
+
+
+
+
+    .sidebar h3 {
+        z-index: 2; /* Asegura que el texto esté por encima de la imagen */
+        margin-top: 170px; /* Espacio superior para evitar superposición con la imagen */
+        color: orange;
+        font-size: 40px;
+    }
+
+    .sidebar p {
+        z-index: 2; /* Asegura que el texto esté por encima de la imagen */
+        margin-top: 45px; /* Espacio superior para evitar superposición con la imagen */
+        font-size: 35px;
+        color: white;
+    }
+
+.container {
+    margin-left: 250px; /* Espacio para el sidebar */
+    padding: 20px; /* Espaciado interno para el contenedor */
+}
+
+/* Estilos para los botones */
+button.btn {
+    font-size: 18px; /* Tamaño del texto en los botones */
+    padding: 10px 20px; /* Tamaño del padding para que los botones sean más grandes */
+    margin-left:50px;
+    border-radius: 5px; /* Bordes redondeados */
+    width: 100%; /* Los botones ocupan todo el ancho de su columna */
+}
+
+/* Ajustes para mejorar la distribución */
+h2 {
+    margin-bottom: 20px; /* Separación inferior para el título */
+}
+
+.parqueo-btn {
+    width: 95%; /* Hace que el botón ocupe el 100% del ancho de la columna */
+    height: auto;
+    padding: 10px;
+    text-align: center; /* Centra el contenido dentro del botón */
+    background-color: white; /* Color de fondo azul */
+    color: orange; /* Color del texto */
+    border: 3px solid black; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados */
+    display: block; /* Hace que todo el contenido se comporte como bloque */
+    margin-bottom: 15px; /* Añade un pequeño margen en la parte inferior */
+}
+
+
+    .parqueo-btn p {
+        font-size: 18px;
+        margin: 0;
+        color: black;
+        font-weight: bold;
+    }
+
+    .parqueo-btn:hover {
+        color: purple; /* Color de fondo al pasar el ratón */
+        cursor: pointer;
+    }
+
+.vehiculo-btn {
+    width: 98%; /* Hace que el botón ocupe el 100% del ancho de la columna */
+    height: auto;
+    padding: 20px;
+    text-align: center; /* Centra el contenido dentro del botón */
+    background-color: white; /* Color de fondo azul */
+    color: orange; /* Color del texto */
+    border: 3px solid black; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados */
+    display: block; /* Hace que todo el contenido se comporte como bloque */
+    margin-bottom: 15px; /* Añade un pequeño margen en la parte inferior */
+    display: flex; /* Alinea imagen y texto en fila */
+    align-items: center; /* Centra verticalmente */
+}
+
+
+    .vehiculo-btn p {
+        font-size: 25px;
+        margin: 10px;
+        color: purple;
+        font-weight: bold;
+    }
+
+    .vehiculo-btn:hover {
+        color: purple; /* Color de fondo al pasar el ratón */
+        cursor: pointer;
+    }
+
+.btn-volver {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: 1px solid black; /* Borde con color */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s; /* Animación de color */
+}
+
+    .btn-volver:hover {
+        background-color: #0056b3;
+        color: #e0e0e0;
+    }
+
+
+.alert {
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}

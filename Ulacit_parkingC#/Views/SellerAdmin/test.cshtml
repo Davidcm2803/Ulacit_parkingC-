@@ -1,0 +1,13 @@
+﻿
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_LayoutSellerAdmin.cshtml";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <script>
+        alert('@TempData["SuccessMessage"]');
+    </script>
+}

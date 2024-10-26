@@ -1,5 +1,4 @@
-﻿using Ulacit_parkingC_;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,25 +8,25 @@ namespace Ulacit_parkingC_.Controllers
 {
     public class SellerAdminController : Controller
     {
-        // GET: SellerAdmin
-        public ActionResult Index()
+        // GET: Test
+        public ActionResult test()
         {
             return View();
         }
 
-        // GET: SellerAdmin/Details/5
+        // GET: Test/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: SellerAdmin/Create
+        // GET: Test/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: SellerAdmin/Create
+        // POST: Test/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -43,13 +42,13 @@ namespace Ulacit_parkingC_.Controllers
             }
         }
 
-        // GET: SellerAdmin/Edit/5
+        // GET: Test/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: SellerAdmin/Edit/5
+        // POST: Test/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -65,13 +64,13 @@ namespace Ulacit_parkingC_.Controllers
             }
         }
 
-        // GET: SellerAdmin/Delete/5
+        // GET: Test/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: SellerAdmin/Delete/5
+        // POST: Test/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
