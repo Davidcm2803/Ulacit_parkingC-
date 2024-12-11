@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <script>
+        alert('@Html.Raw(TempData["SuccessMessage"])');
+    </script>
+}
+
+
+
+<body>
+
+    <div class="container-fluid">
+        <h2>Funciones:</h2>
+
+        <div class="row">
+            <div class="col-md-4">
+                <button class="parqueo-btn" onclick="abrirU()">
+                    <img src="~/Content/img/Usuarios.png" alt="Parqueo 1" class="parqueo-img" />
+                    <h4>Usuarios</h4>
+                    <p>Añadir nuevos usuarios</p>
+                </button>
+                <script>
+                function abrirU() {
+                    window.location.href = '@Url.Action("Index", "NuevoUsuario")';
+                }
+                </script>
+            </div>
+            <div class="col-md-4">
+                <button class="parqueo-btn" onclick="abrirP()">
+                    <img src="~/Content/img/Parqueo.png" alt="Parqueo 3" class="parqueo-img" />
+                    <h4>Vehiculos</h4>
+                    <p>Añadir nuevos Vehiculo</p>
+                </button>
+                <script>
+                function abrirP() {
+                    window.location.href = '@Url.Action("Vehiculo", "NuevoUsuario")';
+                }
+                </script>
+            </div>
+
+
+            <div class="col-md-4">
+                <button class="parqueo-btn" onclick="abrirP()">
+                    <img src="~/Content/img/Parqueo.png" alt="Parqueo 3" class="parqueo-img" />
+                    <h4>Parqueos</h4>
+                    <p>Controlar espacio de parqueos</p>
+                </button>
+                <script>
+                function abrirP() {
+                    window.location.href = '@Url.Action("Index", "Home")';
+                }
+                </script>
+            </div>
+
+            <div class="col-md-4">
+                <button class="parqueo-btn" onclick="abrirB()">
+                    <img src="~/Content/img/Bitacora.png" alt="Parqueo 2" class="parqueo-img" />
+                    <h4>Bitácora</h4>
+                    <p>Buscar vehiculos</p>
+                </button>
+                <script>
+                function abrirB() {
+                    window.location.href = '@Url.Action("Index", "Bitacora")';
+                }
+                </script>
+            </div>
+        </div>
+    </div>
+</body>

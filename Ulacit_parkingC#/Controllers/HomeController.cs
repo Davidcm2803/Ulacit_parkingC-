@@ -7,28 +7,13 @@ namespace Ulacit_parkingC_.Controllers
 {
     public class HomeController : Controller
     {
+        // Acción para la página principal
         public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult Privacy()
-        {
-            return View();
-        }
-
-        // Acción para la vista de error
-        [OutputCache(Duration = 0, Location = OutputCacheLocation.None, NoStore = true)]
-        public ActionResult Error()
-        {
-            var errorViewModel = new ErrorViewModel
-            {
-                // En .NET Framework, puedes usar SessionID como alternativa para el Request ID
-                RequestId = HttpContext?.Session?.SessionID ?? Guid.NewGuid().ToString()
-            };
-            return View(errorViewModel);
-        }
     }
+
 }
 
 

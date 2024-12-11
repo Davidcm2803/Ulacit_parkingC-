@@ -12,21 +12,18 @@ namespace Ulacit_parkingC_.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ParkingLots
+    public partial class Roles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ParkingLots()
+        public Roles()
         {
-            this.ParkingAssignments = new HashSet<ParkingAssignments>();
+            this.Users = new HashSet<Users>();
         }
     
         public int id { get; set; }
-        public string name { get; set; }
-        public int regular_capacity { get; set; }
-        public int motorcycle_capacity { get; set; }
-        public int special_capacity { get; set; }
+        public string role_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ParkingAssignments> ParkingAssignments { get; set; }
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿@{ Layout = null; }
+﻿@model Ulacit_parkingC_.Models.ViewModels.UserViewModel
+
+@{ Layout = null; }
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,15 +56,7 @@
                     <a href="#" class="forgot-password">Forgot Password?</a>
                     <button class="btn-login" type="submit">Login Now</button>
                 </div>
-
-                <div class="divider">OR</div>
             </form>
-
-            <div class="signup">
-                <a href="@Url.Action("Register", "Admin")">
-                    <button class="btn-signup">Signup Now</button>
-                </a>
-            </div>
         </div>
 
         <div class="image-box">

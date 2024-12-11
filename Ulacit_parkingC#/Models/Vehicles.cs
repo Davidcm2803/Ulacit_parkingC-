@@ -25,12 +25,17 @@ namespace Ulacit_parkingC_.Models
         public string color { get; set; }
         public string license_plate { get; set; }
         public string vehicle_type { get; set; }
-        public Nullable<int> owner_id { get; set; }
+        public int owner_id { get; set; }
         public string uses_special_space { get; set; }
-        public string IsActive { get; set; }
+        public string is_active { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MovementLog> MovementLog { get; set; }
         public virtual Users Users { get; set; }
+
+        public static implicit operator Vehicles(Vehicles v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

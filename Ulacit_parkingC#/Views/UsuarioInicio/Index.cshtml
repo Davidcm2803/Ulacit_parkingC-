@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Parqueo</title>
+    <link rel="stylesheet" href="~/Content/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/css/site.css" asp-append-version="true" />
+</head>
+
+<body>
+    <h2>Añadir vehiculos</h2>
+    <div class="sidebar" style="width: 250px; background-image: url('~/Content/img/FondoIzq.PNG'); background-size: cover; background-repeat: no-repeat; height: 100vh;">
+        <button class="btn-volver" onclick="window.history.back()">Volver</button>
+    </div>
+
+    <form>
+        <div class="row">
+            <div class="col-3">
+                <label for="input3">Seleccione su vehiculo</label>
+                <select class="form-control" name="choices" id="input3" required>
+                    <option value="PLACA1">PLACA 1</option>
+                    <option value="PLACA2">PLACA 2</option>
+                </select>
+
+            </div>
+
+            <div class="col-4">
+                <label for="input3">Meses</label>
+                <select class="form-control" name="choices" id="input3" required>
+                    <option value="ENERO">ENERO</option>
+                    <option value="FEBRERO">FEBRERO</option>
+                    <option value="MARZO">MARZO</option>
+                    <option value="ABRIL">ABRIL</option>
+                    <option value="MAYO">MAYO</option>
+                    <option value="JUNIO">JUNIO</option>
+                    <option value="JULIO">JULIO</option>
+                    <option value="AGOSTO">AGOSTO</option>
+                    <option value="SETIEMBRE">SETIEMBRE</option>
+                    <option value="OCTUBRE">OCTUBRE</option>
+                    <option value="NOVIEMBRE">NOVIEMBRE</option>
+                    <option value="DICIEMBRE">DICIEMBRE</option>
+
+                </select>
+            </div>
+        </div>
+
+        <div class="col-11" style="max-height: 400px; overflow-y: auto;">
+            <h2></h2>
+            <table class="table table-striped" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Vehiculo</th>
+                        <th>Fecha</th>
+                        <th>Hora de entrada</th>
+                        <th>Hora de salida</th>
+                        <th>Estado</th>
+                        <th>Más</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>Mary</td>
+                        <td>Moe</td>
+                        <td>mary@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>July</td>
+                        <td>Dooley</td>
+                        <td>july@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </form>
+
+
+
+
+</body>
+
+</html>

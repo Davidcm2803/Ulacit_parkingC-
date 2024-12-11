@@ -1,0 +1,111 @@
+﻿@model Ulacit_parkingC_.Models.ViewModels.VehicleViewModel
+
+@{
+    ViewData["Title"] = "Registro de Vehículo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container pt-5" style="padding: 20px; border: 1px solid #ccc; border-radius: 10px; max-width: 600px; margin: 0 auto;">
+    <form id="vehicleForm">
+        <!-- Fila de Marca y Color -->
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <label for="brand">Marca</label>
+                <input type="text" class="form-control" placeholder="Ingrese marca" name="brand" id="brand" value="@Model.Brand" required>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="color">Color</label>
+                <input type="text" class="form-control" placeholder="Ingrese color" name="color" id="color" value="@Model.Color" required>
+            </div>
+        </div>
+
+        <!-- Fila de Placa y Tipo -->
+        <div class="row mt-3">
+            <div class="col-12 col-md-6">
+                <label for="license_plate">Número de Placa</label>
+                <input type="text" class="form-control" placeholder="Ingrese número de placa" name="license_plate" id="license_plate" value="@Model.LicensePlate" required>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="vehicle_type">Tipo de Vehículo</label>
+                <select class="form-control" name="vehicle_type" id="vehicle_type" required>
+                    <option value="">Seleccione un tipo</option>
+                    <option value="Vehículo" @(Model.VehicleType == "Vehículo" ? "selected" : "")>Vehículo</option>
+                    <option value="Moto" @(Model.VehicleType == "Moto" ? "selected" : "")>Moto</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Fila de Dueño y Espacio Especial -->
+        <div class="row mt-3">
+            <div class="col-12 col-md-6">
+                <label for="owner_id">Dueño</label>
+                @Html.DropDownList("owner_id", (SelectList)ViewBag.Users, "Seleccione un dueño", new { @class = "form-control", @id = "owner_id", @required = "required" })
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="uses_special_space">¿Usa espacio especial (Ley 7600)?</label>
+                <select class="form-control" name="uses_special_space" id="uses_special_space" required>
+                    <option value="">Seleccione</option>
+                    <option value="Y" @(Model.UsesSpecialSpace == "Y" ? "selected" : "")>Sí</option>
+                    <option value="N" @(Model.UsesSpecialSpace == "N" ? "selected" : "")>No</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Botón de Agregar Vehículo -->
+        <div class="row mt-4">
+            <div class="col-10 text-center">
+                <button type="button" class="btn btn-primary" onclick="agregarVehiculo()">Registrar Vehículo</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    function agregarVehiculo() {
+        // Obtener los valores del formulario
+        const brand = document.getElementById("brand").value;
+        const color = document.getElementById("color").value;
+        const licensePlate = document.getElementById("license_plate").value;
+        const vehicleType = document.getElementById("vehicle_type").value;
+        const ownerId = document.getElementById("owner_id").value;
+        const usesSpecialSpace = document.getElementById("uses_special_space").value;
+
+        // Validar campos
+        if (!brand || !color || !licensePlate || !vehicleType || !ownerId || !usesSpecialSpace) {
+            alert("Por favor, complete todos los campos.");
+            return;
+        }
+
+        // Enviar los datos al servidor
+        const datos = {
+            brand: brand,
+            color: color,
+            license_plate: licensePlate,
+            vehicle_type: vehicleType,
+            owner_id: parseInt(ownerId), // Convertir el dueño a número
+            uses_special_space: usesSpecialSpace
+        };
+
+        fetch('/Vehiculo/RegistrarVehiculo', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(datos)
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message);
+                    document.getElementById("vehicleForm").reset();
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("Hubo un error al procesar la solicitud.");
+            });
+    }
+</script>
+

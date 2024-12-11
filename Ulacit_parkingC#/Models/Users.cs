@@ -14,12 +14,10 @@ namespace Ulacit_parkingC_.Models
     
     public partial class Users
     {
-        internal string cardNumber;
-        internal char isActive;
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Users()
         {
+            this.ParkingAssignments = new HashSet<ParkingAssignments>();
             this.Vehicles = new HashSet<Vehicles>();
         }
     
@@ -28,19 +26,15 @@ namespace Ulacit_parkingC_.Models
         public string email { get; set; }
         public System.DateTime date_of_birth { get; set; }
         public string identification { get; set; }
-        public string card_number { get; set; }
-        public string role { get; set; }
+        public int role_id { get; set; }
         public string password { get; set; }
         public string first_login { get; set; }
-        public string PasswordChanged { get; set; }
+        public string password_changed { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ParkingAssignments> ParkingAssignments { get; set; }
+        public virtual Roles Roles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Vehicles> Vehicles { get; set; }
-        public DateTime DateOfBirth { get; internal set; }
-
-        public static implicit operator User(Users v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

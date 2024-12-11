@@ -26,7 +26,9 @@ namespace Ulacit_parkingC_.Models
         }
     
         public virtual DbSet<MovementLog> MovementLog { get; set; }
+        public virtual DbSet<ParkingAssignments> ParkingAssignments { get; set; }
         public virtual DbSet<ParkingLots> ParkingLots { get; set; }
+        public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Vehicles> Vehicles { get; set; }
     }

@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ulacit_parkingC_</RootNamespace>
     <AssemblyName>Ulacit_parkingC#</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,6 +55,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -61,11 +63,8 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -110,6 +109,7 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -129,7 +129,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminInicioController.cs" />
+    <Compile Include="Controllers\BitacoraController.cs" />
+    <Compile Include="Controllers\EntradaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IngresoParqueoController.cs" />
+    <Compile Include="Controllers\NuevoUsuarioController.cs" />
+    <Compile Include="Controllers\NuevoVehiculoController.cs" />
     <Compile Include="Controllers\Parqueo2Controller.cs" />
     <Compile Include="Controllers\Parqueo6Controller.cs" />
     <Compile Include="Controllers\Parqueo5Controller.cs" />
@@ -137,10 +143,10 @@
     <Compile Include="Controllers\Parqueo3Controller.cs" />
     <Compile Include="Controllers\Parqueo1Controller.cs" />
     <Compile Include="Controllers\SellerAdminController.cs" />
+    <Compile Include="Controllers\UsuarioInicioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ErrorViewModel.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -159,7 +165,13 @@
     <Compile Include="Models\MovementLog.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ParkingAssignments.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ParkingLots.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Roles.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Users.cs">
@@ -168,7 +180,7 @@
     <Compile Include="Models\Vehicles.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ViewModels\User.cs" />
+    <Compile Include="Models\ViewModels\RolesViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleViewModel.cs" />
     <Compile Include="Models\ViewModels\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -192,18 +204,31 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\css\sb-admin-2.css" />
     <Content Include="Content\css\sb-admin-2.min.css" />
+    <Content Include="Content\css\register.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\site.css" />
     <Content Include="Content\image.png" />
+    <Content Include="Content\img\1.png" />
+    <Content Include="Content\img\2.png" />
+    <Content Include="Content\img\3.png" />
+    <Content Include="Content\img\4.png" />
+    <Content Include="Content\img\5.png" />
+    <Content Include="Content\img\6.png" />
+    <Content Include="Content\img\Bitacora.png" />
     <Content Include="Content\img\EntradaV.PNG" />
     <Content Include="Content\img\FondoIzq.PNG" />
+    <Content Include="Content\img\Parqueo.png" />
     <Content Include="Content\img\parqueo1.PNG" />
     <Content Include="Content\img\parqueo2.PNG" />
     <Content Include="Content\img\parqueo3.PNG" />
     <Content Include="Content\img\parqueo4.PNG" />
     <Content Include="Content\img\parqueo5.PNG" />
     <Content Include="Content\img\parqueo6.PNG" />
+    <Content Include="Content\img\rojo.png" />
     <Content Include="Content\img\SalidaV.PNG" />
+    <Content Include="Content\img\ulacit.png" />
+    <Content Include="Content\img\Usuarios.png" />
+    <Content Include="Content\img\verde.png" />
     <Content Include="Content\js\demo\chart-area-demo.js" />
     <Content Include="Content\js\demo\chart-bar-demo.js" />
     <Content Include="Content\js\demo\chart-pie-demo.js" />
@@ -1919,6 +1944,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Model1.edmx.sql" />
     <Content Include="Models\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -2102,13 +2128,6 @@
     <Content Include="Content\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Content\vendor\jquery\jquery.min.map" />
     <Content Include="Content\vendor\jquery\jquery.slim.min.map" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
     <Content Include="Content\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
     <Content Include="Content\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map" />
@@ -2134,6 +2153,13 @@
     <Content Include="Content\lib\bootstrap\LICENSE" />
     <Content Include="Content\lib\jquery-validation\LICENSE.md" />
     <Content Include="Content\lib\jquery\dist\jquery.min.map" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2156,7 +2182,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\SellerAdmin\test.cshtml" />
     <Content Include="Views\Shared\_LayoutSellerAdmin.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -2167,6 +2192,13 @@
     <Content Include="Views\Parqueo4\Index.cshtml" />
     <Content Include="Views\Parqueo5\Index.cshtml" />
     <Content Include="Views\Parqueo6\Index.cshtml" />
+    <Content Include="Views\AdminInicio\Index.cshtml" />
+    <Content Include="Views\Bitacora\Index.cshtml" />
+    <Content Include="Views\NuevoUsuario\Index.cshtml" />
+    <Content Include="Views\UsuarioInicio\Index.cshtml" />
+    <Content Include="Views\Entrada\Entrada.cshtml" />
+    <Content Include="Views\IngresoParqueo\IngresoParqueo.cshtml" />
+    <Content Include="Views\NuevoVehiculo\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

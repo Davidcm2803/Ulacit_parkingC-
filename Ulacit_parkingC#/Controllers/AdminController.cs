@@ -46,7 +46,7 @@ namespace Ulacit_parkingC_.Controllers
                 // Si ambos son correctos, entonces se inicia sesión
                 Session["AdminLogged"] = admin;
                 TempData["SuccessMessage"] = "Inicio de sesión exitoso.";
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "AdminInicio");
 
             }
             catch (Exception ex)
@@ -63,41 +63,6 @@ namespace Ulacit_parkingC_.Controllers
             return RedirectToAction("Login"); // Redirige a la página de login
         }
 
-        // GET: Admin/Register
-        [HttpPost]
-        public ActionResult Register(UserViewModel model)
-        {
-            if (!ModelState.IsValid)
-                return View(model);
-
-            // Validar que el correo electrónico no esté ya registrado
-            if (db.Users.Any(u => u.email == model.Email))
-            {
-                ModelState.AddModelError("Email", "El correo electrónico ya está en uso.");
-                return View(model);
-            }
-
-            // Crear nuevo usuario
-            var newUser = new Users // Asegúrate de que sea del tipo correcto
-            {
-                name = model.Name,
-                email = model.Email,
-                DateOfBirth = model.DateOfBirth,
-                identification = model.Identification,
-                cardNumber = model.CardNumber,
-                role = model.Role,
-                PasswordChanged = "N", // Cambiar según sea necesario
-                isActive = 'Y' // Cambiar según sea necesario
-            };
-
-            db.Users.Add(newUser); // Esto ahora debería funcionar correctamente
-            db.SaveChanges(); // Guarda los cambios en la base de datos
-            return RedirectToAction("Login", new { showToast = "registrationSuccessful" });
-        }
-
-
-
-
         // GET: Admin/ChangePassword
         public ActionResult ChangePassword()
         {
@@ -108,7 +73,7 @@ namespace Ulacit_parkingC_.Controllers
         [HttpPost]
         public ActionResult ChangePassword(string currentPassword, string newPassword)
         {
-            var admin = (User)Session["AdminLogged"];
+            var admin = (Users)Session["AdminLogged"];
             if (admin == null)
             {
                 return RedirectToAction("Login");

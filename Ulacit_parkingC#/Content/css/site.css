@@ -24,8 +24,7 @@ body {
 }
 
 .navbar-custom {
-    background-color: purple; /* Cambia el fondo a morado */
-    border: 3px solid black; /* Agrega un borde negro grueso */
+    background-color: #210337; /* Cambia el fondo a morado */
     z-index: 1000;
 }
 
@@ -37,48 +36,85 @@ body {
 
 .nav-item {
     margin-right: 20px; /* Ajusta el valor según el espacio deseado */
-    font-size:20px;
+    font-size: 20px;
 }
 
 .navbar-nav {
-    margin-left: 20px; /* Agrega espacio al inicio de la lista de navegación */
+    margin-left: 1350px; /* Agrega espacio al inicio de la lista de navegación */
 }
 
 
 
-.orange-text{
+.orange-text {
     color: orange;
 }
 
-.white-text{
+.white-text {
     color: white;
 }
 
 .sidebar {
-    width: 250px; /* Ancho del sidebar */
-    height: 100vh; /* Altura completa de la pantalla */
-    /* background-color: purple; */ /* Comentar o eliminar esta línea */
-    background-image: url("/Content/img/FondoIzq.PNG"); /* Ruta correcta de la imagen de fondo */
-    background-size: cover; /* Hace que la imagen cubra todo el sidebar */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    position: fixed; /* Mantiene el sidebar fijo en la pantalla */
-    top: 0;
-    left: 0;
-    border-right: 5px solid black; /* Borde negro a la derecha */
-    display: flex; /* Asegúrate de que sea un contenedor flex */
-    flex-direction: column; /* Alinea los hijos en columna */
-    justify-content: center; /* Centra verticalmente */
-    align-items: center; /* Centra horizontalmente */
-    text-align: center; /* Centra el texto */
+    width: 250px; /* Ancho fijo del sidebar */
+    height: 100vh; /* Altura total de la ventana */
+    background-image: url("/Content/img/FondoIzq.PNG"); /* Imagen de fondo */
+    background-size: cover; /* Cubrir todo el contenedor */
+    background-repeat: no-repeat; /* No repetir la imagen */
+    background-position: top left; /* Ubicación en la esquina superior izquierda */
+    position: fixed; /* Fijar el sidebar */
+    top: 0; /* Alinear al borde superior */
+    left: 0; /* Alinear al borde izquierdo */
+    display: block; /* Eliminar propiedades flexbox si no se necesitan */
+    padding: 10px; /* Reducir padding para ajustar contenido */
+    box-sizing: border-box; /* Incluir padding y border dentro del ancho/alto */
+    overflow: hidden; /* Evitar desbordamiento del contenido */
 }
+
+    .sidebar .Items {
+        display: flex; /* Si necesitas alinear ciertos elementos */
+        flex-direction: column; /* Colocar en columna */
+        justify-content: flex-start; /* Alinear elementos al inicio */
+        align-items: flex-start; /* Alinear al borde izquierdo */
+    }
+
+        .sidebar .Items ul {
+            padding: 0; /* Sin padding adicional */
+            margin: 0; /* Sin márgenes adicionales */
+            list-style: none; /* Eliminar viñetas */
+            text-align: left; /* Texto alineado a la izquierda */
+        }
+
+        .sidebar .Items li {
+            margin: 0; /* Eliminar márgenes */
+            margin-bottom: 15px; /* Espaciado entre ítems */
+            display: flex; /* Usar flex para alinear ícono y texto */
+            align-items: center; /* Alinear verticalmente ícono y texto */
+            color: #ffffff; /* Color del texto */
+            font-size: 18px; /* Tamaño de fuente */
+        }
+
+            .sidebar .Items li i {
+                margin-right: 10px; /* Espaciado entre ícono y texto */
+                color: #ffffff; /* Color del ícono */
+            }
+
+            .sidebar .Items li span {
+                line-height: 1; /* Evitar espacio vertical innecesario */
+            }
+
+    .sidebar i {
+        color: #ffffff !important; /* Asegura que el color sea blanco */
+    }
+
 
     .sidebar img {
         position: relative; /* Posiciona la imagen absolutamente */
-        top: 100px; /* Distancia desde la parte superior */
+        padding-top: 350px; /* Distancia desde la parte superior */
         z-index: 1; /* Asegura que esté encima del fondo */
-        width: 50%; /* Ajusta el ancho al 50% del contenedor */
+        width: 95%; /* Ajusta el ancho al 50% del contenedor */
         height: auto; /* Mantiene la proporción */
+        display:flex;
+        justify-content:center;
+        margin-left: 2px;
     }
 
 
@@ -107,7 +143,7 @@ body {
 button.btn {
     font-size: 18px; /* Tamaño del texto en los botones */
     padding: 10px 20px; /* Tamaño del padding para que los botones sean más grandes */
-    margin-left:50px;
+    margin-left: 50px;
     border-radius: 5px; /* Bordes redondeados */
     width: 100%; /* Los botones ocupan todo el ancho de su columna */
 }
@@ -115,6 +151,9 @@ button.btn {
 /* Ajustes para mejorar la distribución */
 h2 {
     margin-bottom: 20px; /* Separación inferior para el título */
+    font: 'Nunito Sans';
+    color: #210337;
+    font-weight:bold;
 }
 
 .parqueo-btn {
@@ -172,15 +211,15 @@ h2 {
     }
 
 .btn-volver {
-    margin-top: 20px;
+    margin-top: 120px;
     padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: 1px solid black; /* Borde con color */
+    background-color: #FF8337;
+    color: black;
     border-radius: 8px; /* Bordes redondeados */
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s, color 0.3s; /* Animación de color */
+    margin-left: 68px;
 }
 
     .btn-volver:hover {
@@ -200,4 +239,44 @@ h2 {
     color: #155724;
     background-color: #d4edda;
     border-color: #c3e6cb;
+}
+
+#Icon-nav {
+    align-content: center;
+    justify-content: center;
+}
+
+.btn-agregar {
+    background-color: orangered;
+    color: black;
+    border: 1px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button.buscar-btn {
+    background-color: #ffa500;
+    color: black;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px; /* Aumenta el tamaño de la fuente */
+    padding: 10px 20px; /* Agrega padding para hacer el botón más grande */
+}
+
+.btn {
+    background-color: #ffa500;
+    color: black;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px; 
+    padding: 10px 20px;
+}
+
+.fa-solid fa-user fa-sm {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 35px;
 }

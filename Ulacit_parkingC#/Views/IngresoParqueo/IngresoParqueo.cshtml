@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "IngresoParqueo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Parqueo</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Content/css/style.css" asp-append-version="true" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar"
+             style="width: 250px; background-image: url('~/Content/img/FondoIzq.PNG'); background-size: cover; background-repeat: no-repeat; height: 100vh;">
+            <button class="btn-volver" onclick="window.history.back()">Volver</button>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>Ingreso de Parqueo</h2>
+        <form action="registro_parqueo.php" method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre del Parqueo</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingrese el nombre del parqueo" required>
+            </div>
+            <div class="form-group">
+                <label for="espacios-regulares">Cantidad de Espacios Regulares</label>
+                <input type="number" id="espacios-regulares" name="espacios-regulares" placeholder="Cantidad de espacios regulares" required>
+            </div>
+            <div class="form-group">
+                <label for="espacios-moto">Cantidad de Espacios para Moto</label>
+                <input type="number" id="espacios-moto" name="espacios-moto" placeholder="Cantidad de espacios para motos" required>
+            </div>
+            <div class="form-group">
+                <label for="espacios-ley7600">Cantidad de Espacios conforme a la Ley N° 7600</label>
+                <input type="number" id="espacios-ley7600" name="espacios-ley7600" placeholder="Cantidad de espacios conforme a la Ley N° 7600" required>
+            </div>
+            <button type="submit" class="btn lbl-text">Registrar Parqueo</button>
+        </form>
+    </div>
+</body>
+</html>
+
