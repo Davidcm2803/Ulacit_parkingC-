@@ -136,6 +136,7 @@
     <Compile Include="Controllers\IngresoParqueoController.cs" />
     <Compile Include="Controllers\NuevoUsuarioController.cs" />
     <Compile Include="Controllers\NuevoVehiculoController.cs" />
+    <Compile Include="Controllers\ParkingLotsController.cs" />
     <Compile Include="Controllers\Parqueo2Controller.cs" />
     <Compile Include="Controllers\Parqueo6Controller.cs" />
     <Compile Include="Controllers\Parqueo5Controller.cs" />
@@ -180,6 +181,7 @@
     <Compile Include="Models\Vehicles.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\ParkingLotViewModel.cs" />
     <Compile Include="Models\ViewModels\RolesViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleViewModel.cs" />
     <Compile Include="Models\ViewModels\UserViewModel.cs" />
@@ -2199,6 +2201,10 @@
     <Content Include="Views\Entrada\Entrada.cshtml" />
     <Content Include="Views\IngresoParqueo\IngresoParqueo.cshtml" />
     <Content Include="Views\NuevoVehiculo\index.cshtml" />
+    <Content Include="Views\ParkingLots\index.cshtml" />
+    <Content Include="Views\ParkingLots\Create.cshtml" />
+    <Content Include="Views\ParkingLots\Delete.cshtml" />
+    <Content Include="Views\ParkingLots\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

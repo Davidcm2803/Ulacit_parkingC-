@@ -20,7 +20,9 @@ html {
 body {
     background-color: white;
     margin-bottom: 60px;
-    overflow: hidden; /* Evita el scroll de la página */
+    overflow-x: hidden; /* Evita el scroll horizontal */
+    display: flex;
+    flex-direction: row;
 }
 
 .navbar-custom {
@@ -43,16 +45,7 @@ body {
     margin-left: 1350px; /* Agrega espacio al inicio de la lista de navegación */
 }
 
-
-
-.orange-text {
-    color: orange;
-}
-
-.white-text {
-    color: white;
-}
-
+/* Estilo del sidebar */
 .sidebar {
     width: 250px; /* Ancho fijo del sidebar */
     height: 100vh; /* Altura total de la ventana */
@@ -69,42 +62,9 @@ body {
     overflow: hidden; /* Evitar desbordamiento del contenido */
 }
 
-    .sidebar .Items {
-        display: flex; /* Si necesitas alinear ciertos elementos */
-        flex-direction: column; /* Colocar en columna */
-        justify-content: flex-start; /* Alinear elementos al inicio */
-        align-items: flex-start; /* Alinear al borde izquierdo */
-    }
-
-        .sidebar .Items ul {
-            padding: 0; /* Sin padding adicional */
-            margin: 0; /* Sin márgenes adicionales */
-            list-style: none; /* Eliminar viñetas */
-            text-align: left; /* Texto alineado a la izquierda */
-        }
-
-        .sidebar .Items li {
-            margin: 0; /* Eliminar márgenes */
-            margin-bottom: 15px; /* Espaciado entre ítems */
-            display: flex; /* Usar flex para alinear ícono y texto */
-            align-items: center; /* Alinear verticalmente ícono y texto */
-            color: #ffffff; /* Color del texto */
-            font-size: 18px; /* Tamaño de fuente */
-        }
-
-            .sidebar .Items li i {
-                margin-right: 10px; /* Espaciado entre ícono y texto */
-                color: #ffffff; /* Color del ícono */
-            }
-
-            .sidebar .Items li span {
-                line-height: 1; /* Evitar espacio vertical innecesario */
-            }
-
     .sidebar i {
         color: #ffffff !important; /* Asegura que el color sea blanco */
     }
-
 
     .sidebar img {
         position: relative; /* Posiciona la imagen absolutamente */
@@ -112,13 +72,10 @@ body {
         z-index: 1; /* Asegura que esté encima del fondo */
         width: 95%; /* Ajusta el ancho al 50% del contenedor */
         height: auto; /* Mantiene la proporción */
-        display:flex;
-        justify-content:center;
+        display: flex;
+        justify-content: center;
         margin-left: 2px;
     }
-
-
-
 
     .sidebar h3 {
         z-index: 2; /* Asegura que el texto esté por encima de la imagen */
@@ -134,12 +91,19 @@ body {
         color: white;
     }
 
-.container {
-    margin-left: 250px; /* Espacio para el sidebar */
-    padding: 20px; /* Espaciado interno para el contenedor */
+/* Estilos para el contenido principal */
+.content {
+    flex-grow: 1;
+    margin-left: 250px; /* Asegura que el contenido comience después del sidebar */
+    padding: 20px;
 }
 
-/* Estilos para los botones */
+/* Contenedor general */
+.container {
+    padding: 20px;
+}
+
+/* Estilo de botones */
 button.btn {
     font-size: 18px; /* Tamaño del texto en los botones */
     padding: 10px 20px; /* Tamaño del padding para que los botones sean más grandes */
@@ -148,14 +112,7 @@ button.btn {
     width: 100%; /* Los botones ocupan todo el ancho de su columna */
 }
 
-/* Ajustes para mejorar la distribución */
-h2 {
-    margin-bottom: 20px; /* Separación inferior para el título */
-    font: 'Nunito Sans';
-    color: #210337;
-    font-weight:bold;
-}
-
+/* Botones específicos */
 .parqueo-btn {
     width: 95%; /* Hace que el botón ocupe el 100% del ancho de la columna */
     height: auto;
@@ -168,7 +125,6 @@ h2 {
     display: block; /* Hace que todo el contenido se comporte como bloque */
     margin-bottom: 15px; /* Añade un pequeño margen en la parte inferior */
 }
-
 
     .parqueo-btn p {
         font-size: 18px;
@@ -196,7 +152,6 @@ h2 {
     display: flex; /* Alinea imagen y texto en fila */
     align-items: center; /* Centra verticalmente */
 }
-
 
     .vehiculo-btn p {
         font-size: 25px;
@@ -226,7 +181,6 @@ h2 {
         background-color: #0056b3;
         color: #e0e0e0;
     }
-
 
 .alert {
     padding: 15px;
@@ -270,7 +224,7 @@ button.buscar-btn {
     color: black;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 16px; 
+    font-size: 16px;
     padding: 10px 20px;
 }
 

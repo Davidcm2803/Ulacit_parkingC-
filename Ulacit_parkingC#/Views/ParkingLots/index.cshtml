@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Ulacit_parkingC_.Models.ViewModels.ParkingLotViewModel>
+
+@{
+    ViewData["Title"] = "Lista de Estacionamientos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2 class="my-4">@ViewData["Title"]</h2>
+    <div class="mb-3">
+        @Html.ActionLink("Crear Nuevo Estacionamiento", "Create", new { @class = "btn btn-primary" })
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Capacidad Regular</th>
+                <th>Capacidad para Motos</th>
+                <th>Capacidad Especial</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.RegularCapacity</td>
+                    <td>@item.MotorcycleCapacity</td>
+                    <td>@item.SpecialCapacity</td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id, @class = "btn btn-warning btn-sm" }) |
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id, @class = "btn btn-danger btn-sm" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

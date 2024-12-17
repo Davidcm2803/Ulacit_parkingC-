@@ -1,0 +1,31 @@
+﻿@model Ulacit_parkingC_.Models.ParkingLots
+
+@{
+    ViewData["Title"] = "Eliminar Estacionamiento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2 class="my-4">@ViewData["Title"]</h2>
+
+    <div class="alert alert-warning">
+        <h4>¿Estás seguro de que deseas eliminar este estacionamiento?</h4>
+        <p><strong>Nombre:</strong> @Model.name</p>
+        <p><strong>Capacidad Regular:</strong> @Model.regular_capacity</p>
+        <p><strong>Capacidad para Motos:</strong> @Model.motorcycle_capacity</p>
+        <p><strong>Capacidad Especial:</strong> @Model.special_capacity</p>
+    </div>
+
+    @using (Html.BeginForm("Delete", "ParkingLots", new { id = Model.id }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    }
+
+</div>
+
+

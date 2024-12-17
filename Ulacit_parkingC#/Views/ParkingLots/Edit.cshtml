@@ -1,0 +1,44 @@
+﻿@model Ulacit_parkingC_.Models.ViewModels.ParkingLotViewModel
+
+@{
+    ViewData["Title"] = "Editar Estacionamiento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2 class="my-4">@ViewData["Title"]</h2>
+
+    @using (Html.BeginForm("Edit", "ParkingLots", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RegularCapacity, htmlAttributes: new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.RegularCapacity, new { @class = "form-control", type = "number" })
+            @Html.ValidationMessageFor(model => model.RegularCapacity, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MotorcycleCapacity, htmlAttributes: new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.MotorcycleCapacity, new { @class = "form-control", type = "number" })
+            @Html.ValidationMessageFor(model => model.MotorcycleCapacity, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SpecialCapacity, htmlAttributes: new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.SpecialCapacity, new { @class = "form-control", type = "number" })
+            @Html.ValidationMessageFor(model => model.SpecialCapacity, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Guardar Cambios</button>
+        </div>
+    }
+</div>
+

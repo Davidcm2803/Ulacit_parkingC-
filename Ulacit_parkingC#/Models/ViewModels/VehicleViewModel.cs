@@ -12,7 +12,11 @@ namespace Ulacit_parkingC_.Models.ViewModels
         public int OwnerId { get; set; }
         public string UsesSpecialSpace { get; set; }
         public string IsActive { get; set; }
+
+        // Nueva propiedad para la lista de usuarios
+        public List<UserViewModel> Usuarios { get; set; }
     }
+
 
 }
 
