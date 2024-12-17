@@ -137,12 +137,6 @@
     <Compile Include="Controllers\NuevoUsuarioController.cs" />
     <Compile Include="Controllers\NuevoVehiculoController.cs" />
     <Compile Include="Controllers\ParkingLotsController.cs" />
-    <Compile Include="Controllers\Parqueo2Controller.cs" />
-    <Compile Include="Controllers\Parqueo6Controller.cs" />
-    <Compile Include="Controllers\Parqueo5Controller.cs" />
-    <Compile Include="Controllers\Parqueo4Controller.cs" />
-    <Compile Include="Controllers\Parqueo3Controller.cs" />
-    <Compile Include="Controllers\Parqueo1Controller.cs" />
     <Compile Include="Controllers\SellerAdminController.cs" />
     <Compile Include="Controllers\UsuarioInicioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2187,13 +2181,6 @@
     <Content Include="Views\Shared\_LayoutSellerAdmin.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Parqueo1\Index.cshtml" />
-    <Content Include="Views\Parqueo2\Index.cshtml" />
-    <Content Include="Views\Parqueo3\Index.cshtml" />
-    <Content Include="Views\Parqueo4\Index.cshtml" />
-    <Content Include="Views\Parqueo5\Index.cshtml" />
-    <Content Include="Views\Parqueo6\Index.cshtml" />
     <Content Include="Views\AdminInicio\Index.cshtml" />
     <Content Include="Views\Bitacora\Index.cshtml" />
     <Content Include="Views\NuevoUsuario\Index.cshtml" />

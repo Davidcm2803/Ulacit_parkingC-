@@ -31,14 +31,14 @@
                 </script>
             </div>
             <div class="col-md-4">
-                <button class="parqueo-btn" onclick="abrirP()">
+                <button class="parqueo-btn" onclick="abrirV()">
                     <img src="~/Content/img/Parqueo.png" alt="Parqueo 3" class="parqueo-img" />
                     <h4>Vehiculos</h4>
                     <p>Añadir nuevos Vehiculo</p>
                 </button>
                 <script>
-                function abrirP() {
-                    window.location.href = '@Url.Action("Vehiculo", "NuevoUsuario")';
+                function abrirV() {
+                    window.location.href = '@Url.Action("index", "NuevoVehiculo")';
                 }
                 </script>
             </div>
@@ -52,7 +52,7 @@
                 </button>
                 <script>
                 function abrirP() {
-                    window.location.href = '@Url.Action("Index", "Home")';
+                    window.location.href = '@Url.Action("Index", "ParkingLots")';
                 }
                 </script>
             </div>
