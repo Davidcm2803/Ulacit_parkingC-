@@ -13,8 +13,7 @@ namespace Ulacit_parkingC_.Models.ViewModels
         public string Password { get; set; }
         public int RoleId { get; set; }
 
-        // Aquí agregamos la propiedad Roles
-        public List<Roles> Roles { get; set; } // Lista de roles
+        public List<Roles> Roles { get; set; }
         public virtual ICollection<Vehicles> Vehicles { get; set; }
     }
 }
